@@ -24,6 +24,7 @@ namespace Events.Models
         public string ShindigType { get; set; } //I think this is the interest.
         [Display(Name = "Shindig Description")]
         public string ShindigDescription { get; set; }
+        [Display(Name = "Shindig Type")]
         public long interestID { get; set; }
         [Display(Name = "Shindig Type")]
         public virtual Interest Interest { get; set; }
@@ -31,6 +32,10 @@ namespace Events.Models
         [Display(Name = "Host Name")]
         public virtual User host { get; set; }
         public string Location { get; set; }
-
+        [Display(Name = "In-Person")]
+        public bool InPersonOnly { get; set; }
+        [Display(Name = "Group Name")]
+        public Nullable<long> GroupID { get; set; }
+        public virtual Group group { get; set; }
     }
 }

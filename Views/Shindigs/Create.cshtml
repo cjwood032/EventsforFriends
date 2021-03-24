@@ -1,0 +1,64 @@
+﻿@model Events.Models.Shindig
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Shindig</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DateOfEvent" class="control-label"></label>
+                <input asp-for="DateOfEvent" class="form-control" />
+                <span asp-validation-for="DateOfEvent" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ShindigName" class="control-label"></label>
+                <input asp-for="ShindigName" class="form-control" />
+                <span asp-validation-for="ShindigName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Openings" class="control-label"></label>
+                <input asp-for="Openings" class="form-control" />
+                <span asp-validation-for="Openings" class="text-danger"></span>
+            </div>
+           
+            <div class="form-group">
+                <label asp-for="ShindigDescription" class="control-label"></label>
+                <input asp-for="ShindigDescription" class="form-control" />
+                <span asp-validation-for="ShindigDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="interestID" class="control-label"></label>
+                <select asp-for="interestID" class="form-control" asp-items="@(new SelectList(ViewBag.Interests,"InterestID","InterestName"))"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="GroupID" class="control-label"></label>
+                <select asp-for="GroupID" class="form-control" asp-items="@(new SelectList(ViewBag.Groups,"GroupID","GroupName"))"></select>
+                <span asp-validation-for="Location" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Location" class="control-label"></label>
+                <input asp-for="Location" class="form-control" />
+                <span asp-validation-for="Location" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
