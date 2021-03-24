@@ -84,5 +84,13 @@ namespace Events.Controllers
                 return View();
             }
         }
+        [HttpPost]
+        public IActionResult Delete(Shindig target)
+        {
+            Shindig shindig = db.shindigs.Where(shin => shin.ShindigID == target.ShindigID).FirstOrDefault();
+            db.shindigs.Remove(shindig);
+            db.SaveChanges();
+            return RedirectToAction("index");
+        }
     }
 }
