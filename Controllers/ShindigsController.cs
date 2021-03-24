@@ -13,8 +13,8 @@ namespace Events.Controllers
         EventDbContext db = new EventDbContext();
         public IActionResult Index()
         {
-            List<Shindig> haps = db.events.ToList();
-            return View(haps);
+            List<Shindig> shindigs = db.shindigs.ToList();
+            return View(shindigs);
         }
     }
 }

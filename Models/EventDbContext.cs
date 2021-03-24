@@ -12,6 +12,10 @@ namespace Events.Models
 
         }
         public DbSet<Shindig> shindigs { get; set; }
-
+        public DbSet<User> users { get; set; }
+        public DbSet<Group> groups { get; set; }
+        public DbSet<Interest> interests { get; set; }
+        public DbSet<Participant> participants { get; set; }
+        public DbSet<UserGroup> userGroups { get; set; }
     }
 }

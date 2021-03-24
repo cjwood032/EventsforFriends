@@ -1,0 +1,37 @@
+﻿@model List<Events.Models.Shindig>
+@{
+
+}
+<h2>Shindigs</h2>
+<table class="table">
+    <tr>
+        <th>Shindig ID</th>
+        <th>Shindig Name</th>
+        <th>Date of Event</th>
+        <th>Max Guests</th>
+        <th>Open spots</th>
+
+        <th>Host</th>
+        <th>Type</th>
+        <th>Location</th>
+        <th>In-Person only?</th>
+    </tr>
+
+    @foreach (var hap in Model)
+    {
+<tr>
+    <td>
+        <a href="/haps/details/@hap.ShindigID">@hap.ShindigID</a>
+    </td>
+    <td>@hap.ShindigName</td>
+    <td>@hap.DateOfEvent</td>
+    <td>@hap.Openings</td>
+    <td>@hap.AvailableSpots</td>
+    
+    <td>@(hap.host!=null ? hap.host.UserName: "None")</td>
+    <td>@(hap.interest!=null ? hap.interest.InterestName: "None")</td>
+    <td>@hap.Location</td>
+    <td>@(hap.interest!=null ? (hap.interest.InPerson)?"yes":"no": "Unknown")</td>
+</tr>
+}
+</table>

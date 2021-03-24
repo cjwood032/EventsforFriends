@@ -7,7 +7,12 @@ namespace Events.Models
 {
     public class Interest
     {
+        [Key]
         public long InterestID { get; set; }
-        public long InterestName { get; set; }
+        [Required]
+        public string InterestName { get; set; }
+        [Required]
+        public bool InPerson { get; set; }
+        public Nullable<long> UserID { get; set; } //Set null to get list?
     }
 }
