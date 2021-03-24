@@ -21,7 +21,7 @@
     {
 <tr>
     <td>
-        <a href="/haps/details/@hap.ShindigID">@hap.ShindigID</a>
+        <a href="/shindigs/details/@hap.ShindigID">@hap.ShindigID</a>
     </td>
     <td>@hap.ShindigName</td>
     <td>@hap.DateOfEvent</td>
@@ -29,9 +29,9 @@
     <td>@hap.AvailableSpots</td>
     
     <td>@(hap.host!=null ? hap.host.UserName: "None")</td>
-    <td>@(hap.interest!=null ? hap.interest.InterestName: "None")</td>
+    <td>@(hap.Interest!=null ? hap.Interest.InterestName: "None")</td>
     <td>@hap.Location</td>
-    <td>@(hap.interest!=null ? (hap.interest.InPerson)?"yes":"no": "Unknown")</td>
+    <td>@(hap.Interest!=null ? (hap.Interest.InPerson)?"yes":"no": "Unknown")</td>
 </tr>
 }
 </table>

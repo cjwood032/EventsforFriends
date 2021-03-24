@@ -14,7 +14,7 @@ namespace Events.Models
         [Required]
         public string UserEmail { get; set; }
         public IEnumerable<Interest> UserInterests { get; set; }
-        public IEnumerable<Interest> AllInterests { get; set; }
+        public short PersonCount { get; set; }
         public Boolean Admin { get; set; }
         public Boolean Host { get; set; }
         public string UserCode { get; set; }

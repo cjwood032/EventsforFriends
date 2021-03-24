@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Events.Models;
 
 namespace Events.Data
 {
@@ -12,5 +13,6 @@ namespace Events.Data
             : base(options)
         {
         }
+        public DbSet<Events.Models.Shindig> Shindig { get; set; }
     }
 }

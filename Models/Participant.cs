@@ -10,5 +10,6 @@ namespace Events.Models
         public long ParticipantID { get; set; }
         public long ShindigID { get; set; }
         public long UserID { get; set; }
+        public virtual User user { get; set; }
     }
 }

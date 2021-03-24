@@ -16,5 +16,10 @@ namespace Events.Controllers
             List<Shindig> shindigs = db.shindigs.ToList();
             return View(shindigs);
         }
+        public IActionResult Details(long id)
+        {
+            Shindig shindig = db.shindigs.Where(s => s.ShindigID == id).FirstOrDefault();
+            return View(shindig);
+        }
     }
 }
