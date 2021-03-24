@@ -16,7 +16,7 @@ namespace Events.Models
         [Required]
         [Display(Name = "Total Spots")]
         public short Openings { get; set; }
-        [Display(Name = "Filled Spots")]
+        [Display(Name = "Open Spots")]
         public short AvailableSpots { get; set; }
         [Required]
         [Display(Name ="Shindig Name")]

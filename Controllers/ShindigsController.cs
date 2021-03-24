@@ -46,6 +46,41 @@ namespace Events.Controllers
             else
             {
                 ViewBag.Interests = db.interests.Where(i => i.UserID == null).ToList();
+                ViewBag.Groups = db.groups.Where(g => g.OwnerID == 1).ToList(); //need to update when user login occurs.
+                ViewBag.Groups.Insert(0, new Group() { GroupName = "No Group" });
+                return View();
+            }
+        }
+
+        public IActionResult Edit(long id)
+        {
+            Shindig shindig = db.shindigs.Where(s => s.ShindigID == id).FirstOrDefault();
+            ViewBag.Interests = db.interests.Where(i => i.UserID == null).ToList();
+            ViewBag.Groups = db.groups.Where(g => g.OwnerID == 1).ToList(); //need to update when user login occurs.
+            ViewBag.Groups.Insert(0, new Group() { GroupName = "No Group" });
+            return View(shindig);
+        }
+        [HttpPost]
+        public IActionResult Edit(Shindig shindig)
+        {
+            if (ModelState.IsValid)
+            {
+                Shindig foundShindig = db.shindigs.Where(shin => shin.ShindigID == shindig.ShindigID).FirstOrDefault();
+                foundShindig.ShindigName = shindig.ShindigName;
+                foundShindig.Openings = shindig.Openings;
+                foundShindig.DateOfEvent = shindig.DateOfEvent;
+                foundShindig.ShindigDescription = shindig.ShindigDescription;
+                foundShindig.interestID = shindig.interestID;
+                foundShindig.Location = shindig.Location;
+                foundShindig.GroupID = shindig.GroupID != 0 ? shindig.GroupID : null ;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                ViewBag.Interests = db.interests.Where(i => i.UserID == null).ToList();
+                ViewBag.Groups = db.groups.Where(g => g.OwnerID == 1).ToList(); //need to update when user login occurs.
+                ViewBag.Groups.Insert(0, new Group() { GroupName = "No Group" });
                 return View();
             }
         }
