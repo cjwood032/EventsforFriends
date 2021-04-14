@@ -13,7 +13,9 @@ namespace Events.Models
         [Required]
         [Display(Name ="Group Name")]
         public string GroupName { get; set; }
-        [Display(Name ="Group Owner")]
+        
         public long OwnerID { get; set; }
+        [Display(Name = "Group Owner")]
+        public virtual User Owner { get; set; }
     }
 }

@@ -13,6 +13,7 @@ namespace Events.Data
             : base(options)
         {
         }
-        public DbSet<Events.Models.Shindig> Shindig { get; set; }
+        public DbSet<Events.Models.Group> Group { get; set; }
+        
     }
 }

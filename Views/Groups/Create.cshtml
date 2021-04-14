@@ -1,0 +1,68 @@
+﻿@model Events.Models.Group
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Group</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form id="form" asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="GroupName" class="control-label"></label>
+                <input asp-for="GroupName" class="form-control" />
+                <span asp-validation-for="GroupName" class="text-danger"></span>
+            </div>
+           
+            <div class="form-group" runat="server" id="emails">
+                
+            </div>
+            <div class="form-group">
+                <input id="CreateBtn" type="submit" value="Create" class="btn btn-primary" />
+                <button id="Add" onclick="AddPerson()" type="button" class="btn btn-outline-primary">Add Person</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+<script type="text/javascript">
+    var counter = 0;
+
+    
+    function AddPerson(){
+        counter += 1;
+        
+        //e.preventDefault();
+        //alert('worked');
+        var boxes = document.getElementById("emails");
+        var input = document.createElement('input');
+        input.type = Text;
+        input.id = "userEmail" + counter;
+        input.placeholder = "user's email";
+        input.className = "form-control";
+        boxes.appendChild(input);
+
+    }
+    $(function () {
+        $(".CreateBtn").click(function () {
+            var nameList = [];
+            $("#label-container > span").each(function () {
+                nameList.push($(this).text());
+            });
+            alert(nameList);
+        })
+    })
+    $.post("Create", { emailList: nameList });
+    </script>
+
+}
