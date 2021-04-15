@@ -11,5 +11,7 @@ namespace Events.Models
         public long UserGroupID { get; set; }
         public long GroupID { get; set; }
         public long UserID { get; set; }
+        public virtual User user { get; set; }
+        public virtual Group group { get; set; }
     }
 }

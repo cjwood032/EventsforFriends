@@ -17,5 +17,6 @@ namespace Events.Models
         public long OwnerID { get; set; }
         [Display(Name = "Group Owner")]
         public virtual User Owner { get; set; }
+        public virtual ICollection<UserGroup> UserGroups { get; set; }
     }
 }

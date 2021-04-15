@@ -21,10 +21,9 @@ namespace Events.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Create(Group group, List<string> emailList)
+        public IActionResult Create(Group group)
         {
-            var value1 = Request.Form.Keys;
-            var item2 = Request.Form;
+         
             return RedirectToAction("Index");
         }
     }
