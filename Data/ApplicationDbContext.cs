@@ -14,6 +14,7 @@ namespace Events.Data
         {
         }
         public DbSet<Events.Models.Group> Group { get; set; }
+        public DbSet<Events.Models.User> User { get; set; }
         
     }
 }

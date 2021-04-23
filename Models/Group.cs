@@ -11,6 +11,9 @@ namespace Events.Models
         [Key]
         public long GroupID { get; set; }
         [Required]
+        [Index(IsUnique =true)]
+        [MaxLength(40, ErrorMessage = "Name cannot be more than 40 characters")]
+        [MinLength(2, ErrorMessage = "Name must be more than a single character")]
         [Display(Name ="Group Name")]
         public string GroupName { get; set; }
         
